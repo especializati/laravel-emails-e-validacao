@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/test-email-markdown', function () {
-    // return (new UserWelcome())->render();
+    return (new UserWelcome())->render();
 
     Mail::to('carlos@especializati.com.br')
             ->send(new UserWelcome);
