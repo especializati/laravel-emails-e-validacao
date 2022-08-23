@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -17,7 +18,7 @@ class ExampleMail extends Mailable
      * @return void
      */
     public function __construct(
-        private array $user
+        private User $user
     ) {}
 
     /**
@@ -28,6 +29,9 @@ class ExampleMail extends Mailable
     public function build()
     {
         return $this->view('emails.users.example')
-                    ->subject(trans('messages.emails.example'));
+                    ->subject(trans('messages.emails.example'))
+                    ->with([
+                        'user' => $this->user
+                    ]);
     }
 }
