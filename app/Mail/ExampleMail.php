@@ -31,11 +31,12 @@ class ExampleMail extends Mailable
         return $this->view('emails.users.example')
                     ->subject(trans('messages.emails.example'))
                     ->with([
-                        'user' => $this->user
-                    ])
-                    // ->attach(storage_path('app/test.txt'));
-                    ->attachData('content of txt', 'test2.txt', [
-                        'mime' => 'application/text'
+                        'user' => $this->user,
+                        'imageExample' => storage_path('app/download-failed.gif')
                     ]);
+                    // ->attach(storage_path('app/test.txt'));
+                    // ->attachData('content of txt', 'test2.txt', [
+                    //     'mime' => 'application/text'
+                    // ]);
     }
 }
