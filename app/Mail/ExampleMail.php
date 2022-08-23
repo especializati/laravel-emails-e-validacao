@@ -32,6 +32,10 @@ class ExampleMail extends Mailable
                     ->subject(trans('messages.emails.example'))
                     ->with([
                         'user' => $this->user
+                    ])
+                    // ->attach(storage_path('app/test.txt'));
+                    ->attachData('content of txt', 'test2.txt', [
+                        'mime' => 'application/text'
                     ]);
     }
 }
