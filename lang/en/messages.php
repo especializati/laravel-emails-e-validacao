@@ -2,6 +2,7 @@
 
 return [
     'emails' => [
-        'example' => 'New Subject'
+        'example' => 'New Subject',
+        'welcome' => 'Welcome'
     ]
 ];

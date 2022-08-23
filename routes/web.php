@@ -1,9 +1,19 @@
 <?php
 
 use App\Mail\ExampleMail;
+use App\Mail\UserWelcome;
 use App\Models\User;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/test-email-markdown', function () {
+    // return (new UserWelcome())->render();
+
+    Mail::to('carlos@especializati.com.br')
+            ->send(new UserWelcome);
+
+    return 'ok';
+});
 
 Route::get('/test-email', function () {
     $user = User::factory()->create();
